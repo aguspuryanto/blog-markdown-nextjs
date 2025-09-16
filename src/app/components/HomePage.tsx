@@ -1,19 +1,20 @@
+'use client';
+
 import Link from 'next/link';
 import { getAllPosts } from '@/lib/md';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 
-// interface BlogPost {
-//   title: string;
-//   slug: string;
-//   date: string;
-//   excerpt?: string;
-//   readTime?: string;
-//   category?: string;
-// }
+interface BlogPost {
+  title: string;
+  slug: string;
+  date: string;
+  excerpt?: string;
+  readTime?: string;
+  category?: string;
+}
 
-export default async function Home() {
-  const posts = await getAllPosts();
-  const loading = false;
+export default function HomePage() {
+  const posts = getAllPosts() as BlogPost[];
   
   const formatDate = (dateString: string) => {
     try {
@@ -45,18 +46,8 @@ export default async function Home() {
 
       {/* Blog Posts */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {loading ? (
-          <div className="text-center py-12">
-            <p className="text-gray-500">Loading posts...</p>
-          </div>
-        ) : posts.length === 0 ? (
-          <div className="text-center py-12">
-            <h3 className="text-lg font-medium text-gray-900">No posts yet</h3>
-            <p className="mt-1 text-gray-500">Check back later for new content!</p>
-          </div>
-        ) : (
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post) => (
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {posts.map((post) => (
             <article 
               key={post.slug} 
               className="flex flex-col overflow-hidden rounded-xl bg-white shadow-sm hover:shadow-md transition-shadow duration-300"
@@ -96,7 +87,13 @@ export default async function Home() {
                 </div>
               </div>
             </article>
-            ))}
+          ))}
+        </div>
+
+        {posts.length === 0 && (
+          <div className="text-center py-12">
+            <h3 className="text-lg font-medium text-gray-900">No posts yet</h3>
+            <p className="mt-1 text-gray-500">Check back later for new content!</p>
           </div>
         )}
       </div>
@@ -122,4 +119,4 @@ export default async function Home() {
       </div>
     </div>
   );
-}; 
+}
