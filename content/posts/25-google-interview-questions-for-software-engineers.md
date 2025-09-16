@@ -1,6 +1,6 @@
 ---
-title: "25 Google Interview Questions for Software Engineers(with Resources)"
-slug: "25-google-interview-questions-for-software-engineers(with-resources)"
+title: "25 Google Interview Questions for Software Engineers (with Resources)"
+slug: "25-google-interview-questions-for-software-engineers"
 date: "2025-09-16"
 ---
 

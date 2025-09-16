@@ -1,6 +1,6 @@
 ---
 title: "Build a Blog with Next.js and React Markdown"
-slug: "build-a-blog-with-next.js-and-react-markdown"
+slug: "build-a-blog-with-nextjs-and-react-markdown"
 date: "2025-09-16"
 ---
 
